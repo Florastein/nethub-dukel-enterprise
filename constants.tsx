@@ -5,7 +5,7 @@ export const NAV_ITEMS: NavItem[] = [
   { label: 'Intelligence', href: '#services' },
   { label: 'Showcase', href: '#projects' },
   { label: 'Protocol', href: '#process' },
-  { label: 'Enterprise', href: '#contact' },
+  { label: 'Governance', href: '/governance' },
 ];
 
 export const SERVICES: Service[] = [

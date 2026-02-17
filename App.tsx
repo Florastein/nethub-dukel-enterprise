@@ -2,10 +2,17 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import GovernancePage from './components/GovernancePage';
 import { SERVICES, PROJECTS, PROCESS, TECH_STACK } from './constants';
 import logo from './components/logo.svg';
 
 const App: React.FC = () => {
+  const isGovernancePage = window.location.pathname === '/governance';
+
+  if (isGovernancePage) {
+    return <GovernancePage />;
+  }
+
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -224,7 +231,7 @@ const App: React.FC = () => {
             <div className="flex gap-12 text-[10px] font-bold uppercase tracking-[0.4em] text-slate-400">
                <a href="#" className="hover:text-blue-600 transition-colors">Architecture</a>
                <a href="#" className="hover:text-blue-600 transition-colors">Operations</a>
-               <a href="#" className="hover:text-blue-600 transition-colors">Governance</a>
+              <a href="/governance" className="hover:text-blue-600 transition-colors">Governance</a>
             </div>
 
             <div className="tech-label text-slate-300">
