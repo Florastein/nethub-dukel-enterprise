@@ -3,6 +3,7 @@ import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import { SERVICES, PROJECTS, PROCESS, TECH_STACK } from './constants';
+import logo from './components/logo.svg';
 
 const App: React.FC = () => {
   return (
@@ -212,7 +213,11 @@ const App: React.FC = () => {
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-12">
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-slate-900 text-white rounded-2xl flex items-center justify-center font-bold text-lg">N</div>
+              <img 
+                src={logo}
+                alt="Nethub Dukel Logo"
+                className="w-12 h-12 object-contain"
+              />
               <span className="font-heading font-extrabold text-2xl tracking-tighter uppercase text-slate-900">Nethub Dukel</span>
             </div>
             

@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { NAV_ITEMS } from '../constants';
+import logo from './logo.svg';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -17,7 +18,13 @@ const Navbar: React.FC = () => {
     <div className="fixed top-8 left-0 w-full z-50 flex justify-center px-6">
       <nav className={`transition-all duration-500 flex items-center p-2 rounded-full glass-nav border-black/5 ${isScrolled ? 'px-6 py-3 shadow-xl' : 'px-10 py-5 w-full max-w-7xl'}`}>
         <a href="#" className="flex items-center gap-3 mr-auto">
-          <div className="w-10 h-10 bg-black text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg">N</div>
+          <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center shadow-lg">
+            <img 
+              src={logo}
+              alt="Nethub Dukel Logo"
+              className="w-6 h-6 object-contain filter brightness-0 invert"
+            />
+          </div>
           {!isScrolled && (
             <span className="font-heading font-extrabold text-sm tracking-[0.3em] text-slate-900 uppercase opacity-90 hidden sm:inline-block">
               Nethub Dukel
