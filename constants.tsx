@@ -3,7 +3,7 @@ import { Service, Project, NavItem } from './types';
 
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Intelligence', href: '#services' },
-  { label: 'Showcase', href: '#projects' },
+  { label: 'Showcase', href: '/showcase' },
   { label: 'Protocol', href: '#process' },
   { label: 'Governance', href: '/governance' },
 ];

@@ -3,14 +3,20 @@ import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import GovernancePage from './components/GovernancePage';
+import ShowcasePage from './components/ShowcasePage';
 import { SERVICES, PROJECTS, PROCESS, TECH_STACK } from './constants';
 import logo from './components/logo.svg';
 
 const App: React.FC = () => {
   const isGovernancePage = window.location.pathname === '/governance';
+  const isShowcasePage = window.location.pathname === '/showcase';
 
   if (isGovernancePage) {
     return <GovernancePage />;
+  }
+
+  if (isShowcasePage) {
+    return <ShowcasePage />;
   }
 
   return (
