@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nethub Dukel Enterprise | Engineering Digital Systems</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #fdfdfd;
+            --accent-blue: #2563eb;
+            --accent-indigo: #4f46e5;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border-subtle: rgba(0, 0, 0, 0.08);
+        }
+        
+        * { cursor: none !important; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .font-heading { font-family: 'Space+Grotesk', sans-serif; }
+        
+        /* Blueprint Pattern */
+        .blueprint-bg {
+            background-image: radial-gradient(circle, #e2e8f0 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        /* Architectural Blocks - Non Generic */
+        .arch-card {
+            background: #ffffff;
+            border: 1px solid var(--border-subtle);
+            position: relative;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            overflow: hidden;
+        }
+        
+        .arch-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 4px; height: 0%;
+            background: var(--accent-blue);
+            transition: height 0.4s ease;
+        }
+
+        .arch-card:hover {
+            border-color: rgba(0,0,0,0.15);
+            box-shadow: 0 40px 80px -20px rgba(0,0,0,0.08);
+            transform: translateY(-4px);
+        }
+        
+        .arch-card:hover::before {
+            height: 100%;
+        }
+
+        /* Technical Label Decoration */
+        .tech-label {
+            font-family: monospace;
+            font-size: 9px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #94a3b8;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #f8fafc; }
+        ::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent-blue); }
+
+        /* Custom Cursor */
+        #cursor-main {
+            width: 8px; height: 8px; background: #000;
+            border-radius: 50%; position: fixed; pointer-events: none;
+            z-index: 10000; mix-blend-mode: normal;
+            transition: transform 0.1s ease-out;
+        }
+        #cursor-aura {
+            width: 40px; height: 40px; border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 50%; position: fixed; pointer-events: none;
+            z-index: 9999; transition: transform 0.2s cubic-bezier(0.1, 0.7, 0.3, 1);
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        /* Image Mask for Case Studies */
+        .case-mask {
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 90% 100%, 0 100%);
+        }
+
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+        .scanline {
+            position: absolute; width: 100%; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);
+            opacity: 0.05; animation: scanline 10s linear infinite;
+        }
+    </style>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="blueprint-bg">
+    <div id="cursor-main"></div>
+    <div id="cursor-aura"></div>
+    <div id="root"></div>
+
+    <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "@google/genai": "https://esm.sh/@google/genai@^1.41.0"
+  }
+}
+</script>
+    <script>
+        const cMain = document.getElementById('cursor-main');
+        const cAura = document.getElementById('cursor-aura');
+        document.addEventListener('mousemove', (e) => {
+            cMain.style.left = `${e.clientX}px`;
+            cMain.style.top = `${e.clientY}px`;
+            cAura.style.left = `${e.clientX - 20}px`;
+            cAura.style.top = `${e.clientY - 20}px`;
+        });
+        document.addEventListener('mousedown', () => {
+            cMain.style.transform = 'scale(4)';
+            cAura.style.transform = 'scale(0.5)';
+        });
+        document.addEventListener('mouseup', () => {
+            cMain.style.transform = 'scale(1)';
+            cAura.style.transform = 'scale(1)';
+        });
+    </script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
