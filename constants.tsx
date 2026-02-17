@@ -41,8 +41,8 @@ export const SERVICES: Service[] = [
 
 export const PROJECTS: Project[] = [
   {
-    id: 'fin-nexus',
-    title: 'FinNexus Dashboard',
+    id: 'Mechanic',
+    title: 'Nine Inventories',
     category: 'Quantitative Analytics',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop',
     description: 'Real-time transactional processing engine with sub-10ms visual reporting latency.'
